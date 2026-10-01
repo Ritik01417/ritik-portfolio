@@ -34,7 +34,7 @@ export default async function ProjectsSection() {
       <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
         <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-cyan-300">02 / Selected projects</p>
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-cyan-300">03 / Selected projects</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Things I&apos;ve built.</h2>
             <p className="mt-4 max-w-xl text-sm leading-6 text-zinc-400 sm:text-base sm:leading-7">A live selection of my public GitHub work, refreshed automatically as I build and ship new projects.</p>
           </div>

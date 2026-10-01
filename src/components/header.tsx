@@ -11,9 +11,10 @@ export default function Header() {
         <a className="transition-colors hover:text-white" href="#about">About</a>
         <a className="transition-colors hover:text-white" href="#expertise">Expertise</a>
         <a className="transition-colors hover:text-white" href="#projects">Projects</a>
+        <a className="transition-colors hover:text-white" href="#testimonials">Testimonials</a>
       </nav>
 
-      <a href="#projects" className="rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-2 text-xs font-medium transition hover:border-cyan-300/50 hover:bg-cyan-300/10 sm:text-sm">
+      <a href="#testimonials" className="rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-2 text-xs font-medium transition hover:border-cyan-300/50 hover:bg-cyan-300/10 sm:text-sm">
         Let&apos;s connect
       </a>
     </header>

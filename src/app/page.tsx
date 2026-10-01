@@ -4,6 +4,7 @@ import ExpertiseSection from "@/components/expertise-section";
 import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import ProjectsSection, { ProjectsSkeleton } from "@/components/projects-section";
+import TestimonialsSection from "@/components/testimonials-section";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Suspense fallback={<ProjectsSkeleton />}>
         <ProjectsSection />
       </Suspense>
+      <TestimonialsSection />
     </main>
   );
 }

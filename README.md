@@ -1,4 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ritik Kamwal portfolio
+
+Next.js portfolio with Firebase-backed testimonial submission and moderation.
+
+## Firebase setup
+
+1. In Firebase Console, open **Project settings > General > Your apps**. Create or select a Web app and copy its config into `.env.local` using `.env.example` as the template. The Firebase `appId` starts with `1:<sender-id>:web:`; a `G-...` value is a Google Analytics measurement ID and is not the app ID.
+2. Open **Authentication > Sign-in method** and enable **Email/Password**.
+3. Open **Authentication > Users > Add user** and create the email/password you want to use for the admin dashboard. There is deliberately no default password in the source code.
+4. Set `NEXT_PUBLIC_FIREBASE_ADMIN_EMAIL` in `.env.local` to that same email address. Keep the email in the `isAdmin()` function in `firestore.rules` identical.
+5. Deploy the repository's `firestore.rules` file with `npx firebase-tools deploy --only firestore:rules --project ritik-kamwal-portfolio`, or paste those rules into **Firestore Database > Rules** and publish them.
+6. Restart the development server after changing `.env.local`.
+
+The app creates the `testimonials` collection automatically when the first testimonial is submitted. Do not create `contactMessages`; the current site does not use it.
+
+Admin login is available at `/admin/login`. Use the email and password created in step 3. No `admins` collection is required; both the client and Firestore rules restrict administration to the configured email.
 
 ## Getting Started
 
