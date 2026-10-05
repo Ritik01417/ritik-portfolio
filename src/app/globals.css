@@ -27,9 +27,120 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 ::selection {
   background: rgba(103, 232, 249, 0.24);
   color: #ffffff;
+}
+
+.profile-flip {
+  perspective: 1000px;
+  outline: none;
+}
+
+.profile-flip-inner {
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.profile-flip:hover .profile-flip-inner,
+.profile-flip:focus-visible .profile-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.profile-flip:focus-visible {
+  border-radius: 9999px;
+  box-shadow: 0 0 0 3px rgba(103, 232, 249, 0.3);
+}
+
+.profile-flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.profile-flip-back {
+  transform: rotateY(180deg);
+}
+
+.portfolio-section {
+  opacity: 0;
+  transform: translateY(42px) scale(0.992);
+  filter: blur(5px);
+  transition: opacity 800ms cubic-bezier(0.2, 0.75, 0.2, 1), transform 900ms cubic-bezier(0.2, 0.75, 0.2, 1), filter 700ms ease;
+}
+
+.portfolio-section-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.footer-orb { animation: footer-float 8s ease-in-out infinite; }
+.footer-orb-delayed { animation-delay: -4s; }
+
+.footer-cta::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.55) 45%, transparent 65%);
+  transform: translateX(-140%);
+  transition: transform 700ms ease;
+}
+
+.footer-cta:hover::before { transform: translateX(140%); }
+
+.footer-grid {
+  background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+}
+
+.footer-name::after {
+  position: absolute;
+  left: 50%;
+  bottom: -2.5rem;
+  width: min(24rem, 70vw);
+  height: 1px;
+  content: "";
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(103,232,249,.55), rgba(139,92,246,.55), transparent);
+  box-shadow: 0 0 22px rgba(103,232,249,.2);
+}
+
+.footer-link::after {
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  left: 50%;
+  height: 1px;
+  content: "";
+  background: #67e8f9;
+  transition: left 250ms ease, right 250ms ease;
+}
+
+.footer-link:hover::after { left: 0; right: 0; }
+
+@keyframes footer-float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(24px, -18px, 0) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-flip-inner {
+    transition-duration: 1ms;
+  }
+
+  .portfolio-section,
+  .portfolio-section-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .footer-orb { animation: none; }
 }

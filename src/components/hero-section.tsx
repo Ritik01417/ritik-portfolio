@@ -8,7 +8,7 @@ function ArrowUpRight() {
 
 export default function HeroSection() {
   return (
-    <section id="top" className="relative mx-auto grid w-full max-w-6xl items-center gap-16 px-5 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 lg:min-h-[calc(100svh-76px)] lg:grid-cols-[1.12fr_0.88fr] lg:gap-12 lg:px-8 lg:py-20">
+    <section id="top" className="relative mx-auto grid w-full max-w-6xl items-center gap-16 px-5 pb-24 pt-28 sm:px-6 sm:pb-28 sm:pt-32 lg:min-h-screen lg:grid-cols-[1.12fr_0.88fr] lg:gap-12 lg:px-8 lg:pb-20 lg:pt-28">
       <div className="relative z-10 max-w-2xl">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.07] px-3 py-1.5 text-[11px] font-medium tracking-wide text-emerald-200 sm:text-xs">
           <span className="size-1.5 rounded-full bg-emerald-300 shadow-[0_0_12px_#6ee7b7]" />
