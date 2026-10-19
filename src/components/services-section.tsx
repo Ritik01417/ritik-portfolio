@@ -1,124 +1,32 @@
 import type { ReactNode } from "react";
 
-type Service = {
-  title: string;
-  description: string;
-  features: string[];
-  icon: ReactNode;
-};
+type Service = { title: string; description: string; features: string[]; tone: "cyan" | "teal" | "violet"; illustration: ReactNode };
 
-const iconClass = "size-8 stroke-current";
+function ArchitectureIllustration() {
+  return <svg viewBox="0 0 240 135" fill="none" aria-hidden="true" className="service-illustration"><rect x="38" y="19" width="126" height="82" rx="5" stroke="currentColor" strokeWidth="1.5" opacity=".8" /><path d="M38 38h126M54 29h.01m8 0h.01m8 0h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".65" /><rect x="55" y="50" width="58" height="35" rx="3" stroke="currentColor" opacity=".72" /><path d="M63 61h42M63 70h28M63 77h35" stroke="currentColor" strokeWidth="1.5" opacity=".55" /><rect x="128" y="55" width="22" height="30" rx="3" stroke="currentColor" opacity=".7" /><rect x="18" y="72" width="27" height="45" rx="4" stroke="currentColor" opacity=".75" /><path d="M23 80h17M29 109h5" stroke="currentColor" strokeWidth="1.5" opacity=".65" /><rect x="169" y="68" width="48" height="35" rx="4" stroke="currentColor" opacity=".72" /><path d="M176 77h34M176 85h24M176 93h30" stroke="currentColor" strokeWidth="1.5" opacity=".55" /><path d="M83 102v14m-25 0h51M193 104v12m-20 0h40" stroke="currentColor" strokeWidth="1.5" opacity=".7" /></svg>;
+}
+
+function DatabaseIllustration() {
+  return <svg viewBox="0 0 240 135" fill="none" aria-hidden="true" className="service-illustration"><ellipse cx="111" cy="34" rx="31" ry="10" stroke="currentColor" strokeWidth="1.5" /><path d="M80 34v49c0 5.5 13.8 10 31 10s31-4.5 31-10V34M80 58c0 5.5 13.8 10 31 10s31-4.5 31-10M80 82c0 5.5 13.8 10 31 10s31-4.5 31-10" stroke="currentColor" strokeWidth="1.5" opacity=".8" /><path d="M141 43h25v16h23M141 70h18v20h30M71 54H52V39H28M71 76H47v25H25" stroke="currentColor" strokeWidth="1.5" opacity=".68" /><rect x="14" y="28" width="18" height="18" rx="3" stroke="currentColor" opacity=".7" /><rect x="178" y="50" width="23" height="18" rx="3" stroke="currentColor" opacity=".7" /><rect x="189" y="81" width="28" height="18" rx="3" stroke="currentColor" opacity=".7" /><circle cx="53" cy="39" r="3" fill="currentColor" /><circle cx="166" cy="59" r="3" fill="currentColor" /><circle cx="159" cy="90" r="3" fill="currentColor" /></svg>;
+}
+
+function ApiIllustration() {
+  const nodes = [[120, 24], [77, 42], [163, 42], [59, 82], [181, 82], [92, 111], [148, 111]];
+  return <svg viewBox="0 0 240 135" fill="none" aria-hidden="true" className="service-illustration"><path d="M120 61 120 24M120 61 77 42M120 61l43-19M120 61 59 82M120 61l61 21M120 61 92 111M120 61l28 50" stroke="currentColor" strokeWidth="1.5" opacity=".62" /><path d="m77 42-18 40m104-40 18 40m-89 29 56 0M59 82h122" stroke="currentColor" strokeWidth="1.2" opacity=".42" /><polygon points="120,47 133,54 133,69 120,76 107,69 107,54" stroke="currentColor" strokeWidth="1.7" /><path d="M115 61h10M120 56v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />{nodes.map(([x, y]) => <g key={`${x}-${y}`}><rect x={x - 12} y={y - 8} width="24" height="16" rx="3" stroke="currentColor" opacity=".8" /><path d={`M${x - 5} ${y}h10`} stroke="currentColor" opacity=".65" /></g>)}</svg>;
+}
 
 const services: Service[] = [
-  {
-    title: "Mobile & Web Architecture",
-    description:
-      "Thoughtful application architecture for fast, accessible, and maintainable experiences across web and mobile.",
-    features: [
-      "Responsive web applications",
-      "Scalable frontend systems",
-      "Cross-platform mobile flows",
-    ],
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className={iconClass} aria-hidden="true">
-        <rect x="4" y="5" width="16" height="21" rx="2.5" strokeWidth="1.7" />
-        <path d="M4 10h16M9 22h6" strokeWidth="1.7" strokeLinecap="round" />
-        <rect x="18" y="11" width="10" height="16" rx="2" fill="#0b0e13" strokeWidth="1.7" />
-        <path d="M21.5 23.5h3" strokeWidth="1.7" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Database Design",
-    description:
-      "Reliable data models and storage strategies designed for clean access patterns, consistency, and growth.",
-    features: [
-      "Relational & NoSQL modeling",
-      "Query and index optimization",
-      "Migration-ready schemas",
-    ],
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className={iconClass} aria-hidden="true">
-        <ellipse cx="16" cy="7" rx="10" ry="4" strokeWidth="1.7" />
-        <path d="M6 7v8c0 2.2 4.5 4 10 4s10-1.8 10-4V7" strokeWidth="1.7" />
-        <path d="M6 15v8c0 2.2 4.5 4 10 4s10-1.8 10-4v-8" strokeWidth="1.7" />
-      </svg>
-    ),
-  },
-  {
-    title: "High-Throughput API Design",
-    description:
-      "Secure, low-latency APIs built to handle demanding traffic while staying simple for product teams to consume.",
-    features: [
-      "RESTful & real-time APIs",
-      "Caching and rate limiting",
-      "Observability & resilient scaling",
-    ],
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className={iconClass} aria-hidden="true">
-        <rect x="8" y="8" width="16" height="16" rx="3" strokeWidth="1.7" />
-        <path d="M12 1v5m8-5v5M12 26v5m8-5v5M1 12h5m-5 8h5m20-8h5m-5 8h5" strokeWidth="1.7" strokeLinecap="round" />
-        <path d="m12 17 3-3 2.5 2.5L21 13" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
+  { title: "Mobile & Web Architecture", description: "Thoughtful application architecture for fast, accessible, and maintainable experiences across web and mobile.", features: ["Responsive web applications", "Scalable frontend systems", "Cross-platform mobile flows"], tone: "cyan", illustration: <ArchitectureIllustration /> },
+  { title: "Database Design", description: "Reliable data models and storage strategies designed for clean access patterns, consistency, and growth.", features: ["Relational & NoSQL modeling", "Query and index optimization", "Migration-ready schemas"], tone: "teal", illustration: <DatabaseIllustration /> },
+  { title: "High-Throughput API Design", description: "Secure, low-latency APIs built to handle demanding traffic while staying simple for product teams to consume.", features: ["RESTful & real-time APIs", "Caching and rate limiting", "Observability & resilient scaling"], tone: "violet", illustration: <ApiIllustration /> },
 ];
 
 export default function ServicesSection() {
-  return (
-    <section id="services" className="relative py-20 sm:py-24 lg:py-28">
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="mb-9 border-t border-white/[0.07] pt-16 sm:mb-11 sm:pt-20">
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-cyan-300">
-            03 / Services
-          </p>
-          <div className="mt-4 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <h2 className="max-w-xl text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
-              Systems designed to perform and scale.
-            </h2>
-            <p className="max-w-sm text-sm leading-6 text-zinc-500">
-              From product interfaces to the data and APIs behind them, I build dependable foundations for digital products.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <article
-              key={service.title}
-              className="group relative flex min-h-[420px] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0b0e13] p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/25 sm:p-7"
-            >
-              <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-cyan-300/[0.05] blur-3xl transition group-hover:bg-cyan-300/[0.09]" />
-              <div className="relative grid size-14 place-items-center rounded-2xl border border-cyan-300/20 bg-cyan-300/[0.07] text-cyan-300 shadow-[0_0_28px_rgba(103,232,249,0.06)]">
-                {service.icon}
-              </div>
-
-              <div className="relative mt-9">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
-                  Service 0{index + 1}
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.03em] text-white">
-                  {service.title}
-                </h3>
-                <p className="mt-4 text-sm leading-6 text-zinc-400">
-                  {service.description}
-                </p>
-              </div>
-
-              <ul className="relative mt-auto space-y-3 border-t border-white/[0.07] pt-6">
-                {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm font-medium text-zinc-300">
-                    <span className="grid size-4 shrink-0 place-items-center rounded-full border border-cyan-300/45 text-[9px] text-cyan-300">
-                      ✓
-                    </span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <section id="services" className="service-section relative isolate overflow-hidden py-16 sm:py-20 lg:py-24">
+    <div className="service-grid pointer-events-none absolute inset-0" /><div className="service-stars pointer-events-none absolute inset-0" />
+    <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="mb-8 border-t border-white/[0.1] pt-12 text-center sm:mb-10 sm:pt-16"><h2 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Services</h2><div className="mt-5 flex flex-col items-center justify-between gap-4 md:flex-row md:items-end md:text-left"><h3 className="max-w-xl text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">Systems designed to perform and scale.</h3><p className="max-w-sm text-sm leading-6 text-zinc-400">From product interfaces to the data and APIs behind them, I build dependable foundations for digital products.</p></div></div>
+      <div className="grid gap-6 lg:grid-cols-3 lg:gap-5">{services.map((service, index) => <article key={service.title} className={`service-card service-card-${service.tone} group relative isolate flex min-h-[420px] flex-col rounded-2xl p-4 sm:p-5`}><div className="service-card-back service-card-back-one" /><div className="service-card-back service-card-back-two" /><div className="service-card-face relative flex h-full flex-col overflow-hidden rounded-2xl border p-5 sm:p-6"><div className="service-scan pointer-events-none absolute inset-0" /><div className="relative flex items-start justify-between"><span className="grid size-11 place-items-center rounded-xl border border-current/25 bg-current/[0.08] text-sm font-bold">0{index + 1}</span><span className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-55">Service {index + 1}</span></div><div className="service-visual relative mt-4 grid min-h-28 place-items-center overflow-hidden rounded-xl border border-current/20 bg-black/10 px-2"><div className="service-visual-grid absolute inset-0" />{service.illustration}</div><div className="relative mt-5"><h3 className="text-xl font-semibold leading-tight tracking-[-0.035em] text-white sm:text-2xl">{service.title}</h3><p className="mt-3 text-sm leading-6 text-zinc-300">{service.description}</p></div><ul className="relative mt-auto space-y-2.5 border-t border-current/20 pt-5">{service.features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm font-medium text-zinc-200"><span className="grid size-4 shrink-0 place-items-center rounded border border-current/70 text-[10px] leading-none">✓</span>{feature}</li>)}</ul></div></article>)}</div>
+    </div>
+  </section>;
 }

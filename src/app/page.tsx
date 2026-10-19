@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import ProjectsSection, { ProjectsSkeleton } from "@/components/projects-section";
+import PortfolioLoader from "@/components/portfolio-loader";
 import ServicesSection from "@/components/services-section";
 import SectionAnimations from "@/components/section-animations";
 import SocialLauncher from "@/components/social-launcher";
@@ -12,7 +13,8 @@ import TestimonialsSection from "@/components/testimonials-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#07090d] text-white">
+    <main className="min-h-screen overflow-hidden bg-[var(--portfolio-background)] text-[var(--portfolio-foreground)] transition-colors duration-500">
+      <PortfolioLoader />
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_75%_12%,rgba(42,107,255,0.13),transparent_28%),radial-gradient(circle_at_12%_65%,rgba(0,211,167,0.07),transparent_25%)]" />
       <SectionAnimations />
       <Header />
